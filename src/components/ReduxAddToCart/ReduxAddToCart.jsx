@@ -9,12 +9,12 @@ function ReduxAddToCart({ product }) {
         dispatch(addToCart(product));
     }
     function decrease() {
-     //dispatch({type: , payload: })
-     dispatch(removeFromCart(product));
+        //dispatch({type: , payload: })
+        dispatch(removeFromCart(product));
     }
 
     let quantity = useSelector((state) => {
-        return state.items[product.id]?.quantity || 0;
+        return state.cart.items[product.id]?.quantity || 0;
     })
 
     if (quantity === 0) {
@@ -22,9 +22,9 @@ function ReduxAddToCart({ product }) {
             <div>
                 <button onClick={increase}>AddToCart</button>
             </div>
-     )  
+        )
     } else {
-        return ( 
+        return (
             <div>
                 <button onClick={decrease}>-</button>
                 <span>{quantity}</span>
